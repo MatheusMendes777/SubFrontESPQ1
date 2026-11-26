@@ -1,0 +1,16 @@
+/* CSS Grid da seção de destaque: áreas image / title / desc / cta */
+.featured-grid{display:grid;gap:1.5rem 2.5rem;grid-template-areas:"image" "title" "desc" "cta";grid-template-columns:1fr}
+.featured-grid .g-image{grid-area:image}.featured-grid .g-title{grid-area:title}
+.featured-grid .g-desc{grid-area:desc}.featured-grid .g-cta{grid-area:cta}
+@media (min-width:768px){.featured-grid{grid-template-columns:minmax(220px,1fr) 1.6fr;
+  grid-template-areas:"image title" "image desc" "image cta";align-items:center}}
+@media (min-width:1280px){.featured-grid{grid-template-columns:400px 1fr;gap:2rem 5rem}}
+
+.hero{background:radial-gradient(900px 500px at 15% 20%,rgba(124,58,237,.35),transparent 60%),#0e0c15}
+.navbar .collapse,.navbar .collapsing{visibility:visible}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+.modal-content,.offcanvas{background:#18151f;color:#e7e4ee}
+.form-control,.form-select{background-color:#231f2e;border:1px solid rgba(255,255,255,.15);color:#e7e4ee}
+.form-control:focus,.form-select:focus{background-color:#231f2e;color:#e7e4ee;border-color:#8b5cf6;box-shadow:0 0 0 .2rem rgba(139,92,246,.35)}
+.toast{background:#231f2e;color:#e7e4ee;border:1px solid #8b5cf6}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1!important}}

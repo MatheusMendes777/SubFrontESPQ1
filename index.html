@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoreBooks | Livros para todas as histórias</title>
+  <meta name="description" content="StoreBooks: loja online de livros de ficção, fantasia, tecnologia, infantil e ciência.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="tailwind.config.js"></script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .link-grow { @apply relative text-fog/80 no-underline transition-colors duration-200 hover:text-brand-400
+        after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-brand-500
+        after:origin-left after:scale-x-0 hover:after:animate-underlineGrow; }
+      .btn-primary-sb { @apply inline-block bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl px-5 py-2.5
+        no-underline cursor-pointer transition duration-150 ease-out active:scale-95 focus-visible:shadow-glow outline-none; }
+      .btn-ghost-sb { @apply inline-block border border-white/25 hover:bg-white/10 text-fog rounded-xl px-5 py-2.5
+        no-underline cursor-pointer transition duration-150 ease-out active:scale-95 focus-visible:shadow-glow outline-none; }
+      .chip { @apply rounded-full border border-white/15 px-4 py-1.5 text-sm text-fog/80 transition duration-150 hover:border-brand-500 active:scale-95; }
+      .chip.active { @apply bg-brand-600 border-brand-600 text-white; }
+    }
+  </style>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-ink text-fog font-sans">
+
+<header>
+  <nav class="navbar navbar-expand-lg bg-graphite border-b border-white/10 sticky-top">
+    <div class="container">
+      <a class="navbar-brand font-display text-2xl font-extrabold text-white animate-fadeIn no-underline" href="#inicio">
+        Store<span class="text-brand-400">Books</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mx-lg-auto gap-lg-4 py-3 py-lg-0">
+          <li class="nav-item animate-fadeIn" style="animation-delay:.1s"><a class="link-grow" href="#inicio">Início</a></li>
+          <li class="nav-item animate-fadeIn" style="animation-delay:.2s"><a class="link-grow" href="#categorias">Categorias</a></li>
+          <li class="nav-item animate-fadeIn" style="animation-delay:.3s"><a class="link-grow" href="#lancamentos">Livros</a></li>
+          <li class="nav-item animate-fadeIn" style="animation-delay:.4s"><a class="link-grow" href="#contato">Contato</a></li>
+        </ul>
+        <div class="flex items-center gap-3 animate-fadeIn" style="animation-delay:.5s">
+          <input id="search" type="search" placeholder="Buscar título ou autor" aria-label="Buscar livros" autocomplete="off"
+            class="w-36 focus:w-64 transition-all duration-500 ease-out rounded-full bg-white/10 text-white placeholder-white/50 px-4 py-2 text-sm outline-none focus:bg-slate2 focus:shadow-glow">
+          <button id="open-cart" type="button" class="btn-primary-sb !px-4 !py-2 text-sm" aria-label="Abrir carrinho">
+            🛒 <span id="cart-count" class="inline-block">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero py-12 md:py-18 xl:py-22">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="g-image justify-self-center">
+          <img id="hero-img" data-id="duna" alt="Capa do livro Duna" class="w-52 sm:w-64 md:w-72 xl:w-96 rounded-xl shadow-violet animate-floaty">
+        </div>
+        <h1 class="g-title font-display font-extrabold text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl leading-tight text-white animate-fadeIn">
+          Duna: o clássico da ficção científica, na sua estante.
+        </h1>
+        <p class="g-desc text-lg text-fog/80 max-w-xl">
+          Poder, deserto e especiaria em um dos maiores romances já escritos. Frete grátis nas compras acima de R$ 150.
+        </p>
+        <div class="g-cta flex flex-wrap gap-3">
+          <button id="hero-buy" type="button" class="btn-primary-sb">Comprar agora</button>
+          <a href="#categorias" class="btn-ghost-sb">Ver categorias</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categorias" class="container py-12 md:py-18">
+    <h2 class="font-display text-3xl md:text-4xl font-extrabold text-white mb-8">Escolha pela história que quer viver</h2>
+    <div id="cats" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6"></div>
+  </section>
+
+  <section id="lancamentos" class="container pb-12 md:pb-18">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold text-white mb-0">Nossos livros</h2>
+      <label class="flex items-center gap-2 text-sm text-mute">Ordenar
+        <select id="sort" class="form-select form-select-sm !w-auto">
+          <option value="rel">Relevância</option>
+          <option value="asc">Menor preço</option>
+          <option value="desc">Maior preço</option>
+          <option value="az">Título (A–Z)</option>
+        </select>
+      </label>
+    </div>
+    <div id="chips" class="flex flex-wrap gap-2 mb-8"></div>
+    <div id="books" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+  </section>
+</main>
+
+<footer id="contato" class="bg-graphite border-t border-white/10 text-fog/80 pt-12 pb-6">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-4">
+        <p class="font-display text-2xl font-extrabold text-white">Store<span class="text-brand-400">Books</span></p>
+        <p class="text-sm">Livros selecionados por leitores, entregues em todo o Brasil.</p>
+        <a class="link-grow text-sm" href="mailto:contato@storebooks.example">contato@storebooks.example</a>
+      </div>
+      <div class="col-6 col-md-3">
+        <p class="font-bold text-white mb-3">Navegue</p>
+        <ul class="list-unstyled p-0 space-y-2">
+          <li><a class="link-grow" href="#categorias">Categorias</a></li>
+          <li><a class="link-grow" href="#lancamentos">Livros</a></li>
+          <li><a class="link-grow" href="#inicio">Voltar ao topo</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-5">
+        <p class="font-bold text-white mb-3">Receba ofertas por e-mail</p>
+        <form id="news-form" class="flex gap-2 mb-4" novalidate>
+          <input id="news-email" type="email" required placeholder="seu@email.com" aria-label="E-mail" class="form-control">
+          <button type="submit" class="btn-primary-sb whitespace-nowrap">Assinar</button>
+        </form>
+        <div class="flex gap-4">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="text-fog hover:text-brand-400 hover:animate-spin transition-colors">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="text-fog hover:text-brand-400 hover:animate-pulse-social transition-colors">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M14 8V6.5c0-.8.2-1.2 1.3-1.2H17V2h-2.6C11.4 2 10 3.7 10 6.2V8H7.5v3.3H10V22h4V11.3h2.7L17 8z"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" class="text-fog hover:text-brand-400 hover:animate-spin transition-colors">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="text-fog hover:text-brand-400 hover:animate-pulse-social transition-colors">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-white/15 my-4">
+    <p class="text-center text-sm text-mute mb-0">© <span id="year"></span> StoreBooks, loja fictícia para fins acadêmicos. Capas via Open Library.</p>
+  </div>
+</footer>
+
+<button id="to-top" type="button" aria-label="Voltar ao topo"
+  class="fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full bg-brand-600 text-white text-xl shadow-violet transition-all duration-300 opacity-0 pointer-events-none active:scale-90 hover:bg-brand-500">↑</button>
+
+<!-- Carrinho -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="cart-title">
+  <div class="offcanvas-header border-b border-white/10">
+    <h2 id="cart-title" class="font-display text-2xl font-bold text-white mb-0">Seu carrinho</h2>
+    <button type="button" class="text-2xl text-fog hover:text-white" data-bs-dismiss="offcanvas" aria-label="Fechar">✕</button>
+  </div>
+  <div class="offcanvas-body flex flex-col">
+    <div id="cart-items" class="flex-1 space-y-3 overflow-auto"></div>
+    <div class="border-t border-white/10 pt-4 mt-3">
+      <div class="flex justify-between text-lg mb-3"><span>Total</span><strong id="cart-total" class="text-white">R$ 0,00</strong></div>
+      <div class="flex gap-2">
+        <button id="clear-cart" type="button" class="btn-ghost-sb">Limpar</button>
+        <button id="checkout-btn" type="button" class="btn-primary-sb flex-1 disabled:opacity-40">Finalizar compra</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detalhes do livro -->
+<div class="modal fade" id="detail-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border border-white/10 rounded-2xl">
+      <div class="modal-body p-4 p-md-5">
+        <button type="button" class="float-end text-2xl text-fog hover:text-white" data-bs-dismiss="modal" aria-label="Fechar">✕</button>
+        <div class="row gy-4 items-center">
+          <div class="col-12 col-md-5"><img id="d-img" alt="" class="w-full rounded-xl shadow-violet"></div>
+          <div class="col-12 col-md-7">
+            <span id="d-cat" class="text-sm font-semibold text-brand-400"></span>
+            <h2 id="d-title" class="font-display text-3xl font-extrabold text-white"></h2>
+            <p id="d-author" class="text-mute"></p>
+            <p id="d-desc" class="text-fog/90"></p>
+            <p id="d-price" class="text-2xl font-bold text-white"></p>
+            <button id="d-add" type="button" class="btn-primary-sb">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout -->
+<div class="modal fade" id="checkout-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border border-white/10 rounded-2xl">
+      <div class="modal-body p-4">
+        <div id="co-form-wrap">
+          <h2 class="font-display text-2xl font-bold text-white">Finalizar compra</h2>
+          <p class="text-mute">Total: <strong id="co-total" class="text-white"></strong></p>
+          <form id="co-form" novalidate>
+            <div class="mb-3"><label class="form-label" for="co-name">Nome completo</label>
+              <input id="co-name" class="form-control" required minlength="3"><div class="invalid-feedback">Informe seu nome.</div></div>
+            <div class="mb-3"><label class="form-label" for="co-email">E-mail</label>
+              <input id="co-email" type="email" class="form-control" required><div class="invalid-feedback">Informe um e-mail válido.</div></div>
+            <div class="mb-3"><label class="form-label" for="co-addr">Endereço de entrega</label>
+              <input id="co-addr" class="form-control" required minlength="6"><div class="invalid-feedback">Informe o endereço.</div></div>
+            <div class="mb-4"><label class="form-label" for="co-pay">Pagamento</label>
+              <select id="co-pay" class="form-select"><option>Pix</option><option>Cartão de crédito</option><option>Boleto</option></select></div>
+            <div class="flex gap-2">
+              <button type="button" class="btn-ghost-sb" data-bs-dismiss="modal">Voltar</button>
+              <button type="submit" class="btn-primary-sb flex-1">Confirmar pedido</button>
+            </div>
+          </form>
+        </div>
+        <div id="co-done" class="text-center py-4 hidden">
+          <p class="text-5xl mb-2">✅</p>
+          <h2 class="font-display text-2xl font-bold text-white">Pedido confirmado!</h2>
+          <p id="co-msg" class="text-mute"></p>
+          <button type="button" class="btn-primary-sb" data-bs-dismiss="modal">Continuar comprando</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3" id="toasts" style="z-index:1100"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
