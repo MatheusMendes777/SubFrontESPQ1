@@ -1,4 +1,4 @@
-# StoreBooks – Loja online (tema roxo escuro)
+# StoreBooks – Loja online
 
 CSS Grid (destaque) + TailwindCSS (utilitários, tema, animações) + Bootstrap (navbar, rodapé, offcanvas, modais, toasts).
 
@@ -7,10 +7,5 @@ Busca em tempo real (expande ao focar; Esc limpa), filtro por categoria (chips e
 
 ## Imagens
 Capas reais carregadas da Open Library (`covers.openlibrary.org`) por ISBN. Se alguma falhar, uma capa SVG de reserva é gerada automaticamente.
-
-## Publicar no GitHub Pages
-1. Envie todo o conteúdo da pasta para um repositório (`index.html` na raiz).
-2. *Settings → Pages → Deploy from a branch → main → / (root)*.
-3. Acesse `https://SEU-USUARIO.github.io/NOME-DO-REPO/`.
 
 Obs.: Tailwind, Bootstrap, fontes e capas usam CDN, então é preciso internet.
